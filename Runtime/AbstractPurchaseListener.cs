@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Purchasing;
 using System.Collections.Generic;
+using UnityEngine.Purchasing.Extension;
 
 public abstract class AbstractPurchaseListener : MonoBehaviour, IDetailedStoreListener
 {
@@ -45,15 +46,21 @@ public abstract class AbstractPurchaseListener : MonoBehaviour, IDetailedStoreLi
         Debug.Log($"Initialization Failed: {error}");
     }
 
-    public virtual void OnPurchaseFailed(Product product, PurchaseFailureDescription failureDescription)
-    {
-        Debug.Log($"Purchase Failed: {product.definition.id}, {failureDescription.reason}, {failureDescription.message}");
-    }
-
     public virtual PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
         Debug.Log($"Purchase Successful: {args.purchasedProduct.definition.id}");
         return PurchaseProcessingResult.Complete;
+    }
+
+    public void OnPurchaseFailed(Product product, PurchaseFailureDescription failureDescription)
+    {
+        Debug.Log($"Purchase Failed: {product.definition.id}, {failureDescription.reason}, {failureDescription.message}");
+
+    }
+
+    public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
+    {
+        Debug.Log($"Purchase Failed: {product.definition.id}, {failureReason}");
     }
 }
 

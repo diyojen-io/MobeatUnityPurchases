@@ -55,7 +55,6 @@ public abstract class AbstractPurchaseListener : MonoBehaviour, IDetailedStoreLi
     public void OnPurchaseFailed(Product product, PurchaseFailureDescription failureDescription)
     {
         Debug.Log($"Purchase Failed: {product.definition.id}, {failureDescription.reason}, {failureDescription.message}");
-
     }
 
     public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)

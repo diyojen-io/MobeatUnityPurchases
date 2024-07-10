@@ -1,0 +1,15 @@
+{
+    "name": "com.diyojen.mobeat_purchases",
+    "version": "1.0.0",
+    "displayName": "Mobeat Purchases",
+    "description": "Mobeat's In-app purchases listener",
+    "unity": "2019.4",
+    "author": {
+        "name": "Diyojen",
+        "email": "enes.unal@diyojen.io",
+        "url": "https://diyojen.io"
+    },
+    "dependencies": {
+        "com.unity.purchasing": "4.0.3"
+    }
+}
